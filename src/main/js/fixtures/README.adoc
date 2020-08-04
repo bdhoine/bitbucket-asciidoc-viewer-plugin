@@ -1,0 +1,18 @@
+= Title
+
+== Links
+
+image::https://asciidoctor.org/images/octocat.jpg[GitHub mascot]
+
+image::octocat.jpg[GitHub mascot]
+
+== Code
+
+[source,ruby]
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----

@@ -1,0 +1,96 @@
+{
+  "name": "bitbucket-asciidoc-viewer-plugin",
+  "version": "1.0.0",
+  "description": "AsciiDoc Viewer plugin for Atlassian Bitbucket Server",
+  "main": "index.js",
+  "author": "Barry d'Hoine",
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/bdhoine/bitbucket-asciidoc-viewer-plugin"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "asciidoctor": "^2.2.0",
+    "highlight.js": "^10.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "atlassian-webresource-webpack-plugin": "^4.9.0",
+    "babel-jest": "^26.2.2",
+    "css-loader": "^4.2.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.2.2",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-raw-loader": "^1.0.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "\\.(adoc|html)$": "jest-raw-loader"
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2020": true,
+      "node": true,
+      "jest/globals": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 11,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "jest"
+    ],
+    "ignorePatterns": [
+      "webpack.config.js"
+    ],
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  }
+}
