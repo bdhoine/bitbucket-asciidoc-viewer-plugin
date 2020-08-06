@@ -16,6 +16,7 @@ The plugin can installed from the Atlassian Marketplace
 == Alternatives
 
 https://github.com/christiangalsterer/bitbucket-asciidoc-plugin[Bitbucket Asciidoc Plugin] (Open Source, Not supported anymore)
+
 https://marketplace.atlassian.com/apps/1222697/asciidoc-viewer-for-bitbucket?hosting=server&tab=overview[AsciiDoc Viewer for Bitbucket] (Paid)
 
 == Contributing
