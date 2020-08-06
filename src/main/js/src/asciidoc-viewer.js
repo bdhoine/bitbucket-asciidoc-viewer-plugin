@@ -7,7 +7,7 @@ export const weight = 900;
 
 export function handler(context) {
     const asciidocHandler = new AsciidocHandler(context);
-    if (asciidocHandler.canHandleFile) {
+    if (asciidocHandler.canHandleFile()) {
         const asciidocView = new AsciidocView(context);
         asciidocView.render();
 
@@ -18,6 +18,7 @@ export function handler(context) {
             asciidocView
         };
     }
+    return undefined;
 }
 
 fileHandlers.register({

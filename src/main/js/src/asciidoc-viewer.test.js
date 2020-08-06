@@ -22,4 +22,9 @@ describe("AsciidocViewer", () => {
         returnedHandler.destroy();
         expect(returnedHandler.asciidocView.destroy).toBeCalled();
     });
+
+    test("Nothing should be returned when a file can not be handled", () => {
+        const invalidHandler = handler(context("md"));
+        expect(invalidHandler).toBeUndefined();
+    });
 });

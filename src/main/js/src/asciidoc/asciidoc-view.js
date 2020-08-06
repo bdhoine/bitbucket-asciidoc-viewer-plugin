@@ -11,13 +11,13 @@ export default class AsciidocView {
         context.$container.append(this.container);
     }
 
-    get html() {
+    html() {
         return this.container.outerHTML;
     }
 
     async render() {
         const asciidoctor = new Asciidoctor();
-        await fetch(this.bitbucketService.rawUrl).then(response => {
+        await fetch(this.bitbucketService.rawUrl()).then(response => {
             response.text().then(text => {
                 const html = asciidoctor.convert(text);
                 this.renderHtml(html);

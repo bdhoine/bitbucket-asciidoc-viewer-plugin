@@ -8,7 +8,7 @@ export default class BitbucketService {
         this.path = context.fileChange.path.components.join("/");
     }
 
-    get rawUrl() {
+    rawUrl() {
         const contextPath = AJS.contextPath();
         const rawPath = `/projects/${this.projectKey}/repos/${this.repoSlug}/raw/${this.path}`;
         return `${contextPath}${rawPath}?at=${this.revisionId}`;

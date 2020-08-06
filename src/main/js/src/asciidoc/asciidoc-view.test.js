@@ -16,16 +16,16 @@ describe("Asciidoc View", () => {
         await asciidocView.render();
     });
 
-    test("Rendered asciidoc should be valid", () => {
-        expect(asciidocView.html).toBe(html);
+    test("Rendered asciidoc should be valid", async () => {
+        expect(asciidocView.html()).toBe(html);
     });
 
     test("Local images should be rewritten", () => {
-        expect(asciidocView.html).toContain("octocat.jpg?at=refs%2Fheads%2Fmaster&amp;raw");
+        expect(asciidocView.html()).toContain("octocat.jpg?at=refs%2Fheads%2Fmaster&amp;raw");
     });
 
     test("Source code should be detected and highlighted", () => {
-        expect(asciidocView.html).toContain("code class=\"language-ruby hljs\"");
+        expect(asciidocView.html()).toContain("code class=\"language-ruby hljs\"");
     });
 
     test("Destroy should remove container", () => {

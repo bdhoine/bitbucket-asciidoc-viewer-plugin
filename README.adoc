@@ -50,4 +50,4 @@ To run them manually you can issue
 atlas-mvn test
 ----
 
-This will run all tests, including the frontend tests using the `jest` testrunner.
+This will run all tests, including the frontend tests using the `jest` test runner.

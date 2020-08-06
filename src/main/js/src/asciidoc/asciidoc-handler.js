@@ -4,16 +4,16 @@ export default class AsciidocHandler {
         this.contentMode = context.contentMode;
     }
 
-    get canHandleExtension() {
+    canHandleExtension() {
         const supportedExtensions = ["asciidoc", "adoc", "asc"];
         return supportedExtensions.indexOf(this.fileExtension) >= 0;
     }
 
-    get canHandleContentMode() {
+    canHandleContentMode() {
         return this.contentMode === "source";
     }
 
-    get canHandleFile() {
-        return this.canHandleExtension && this.canHandleContentMode;
+    canHandleFile() {
+        return this.canHandleExtension() && this.canHandleContentMode();
     }
 }

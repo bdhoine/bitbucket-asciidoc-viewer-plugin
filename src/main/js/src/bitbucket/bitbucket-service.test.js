@@ -25,6 +25,6 @@ describe("Bitbucket Service", () => {
     });
 
     test("Raw url should be built correct", () => {
-        expect(bitbucketService.rawUrl).toBe("context/projects/PK/repos/RS/raw/folder/README.adoc?at=refs%2Fheads%2Fmaster");
+        expect(bitbucketService.rawUrl()).toBe("context/projects/PK/repos/RS/raw/folder/README.adoc?at=refs%2Fheads%2Fmaster");
     });
 });

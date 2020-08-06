@@ -6,6 +6,8 @@ image::https://asciidoctor.org/images/octocat.jpg[GitHub mascot]
 
 image::octocat.jpg[GitHub mascot]
 
+image::octocat.jpg?hasParameter=true[GitHub mascot]
+
 == Code
 
 [source,ruby]

@@ -28,7 +28,43 @@
         <atlassian.spring.scanner.version>2.1.7</atlassian.spring.scanner.version>
 
         <plugin.descriptors.folder>META-INF/plugin-descriptors</plugin.descriptors.folder>
+
+        <webpack.mode>development</webpack.mode>
+        <npm.goal>install</npm.goal>
+        <env.CI>false</env.CI>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>production</id>
+
+            <properties>
+                <webpack.mode>production</webpack.mode>
+                <npm.goal>ci</npm.goal>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>npm run lint</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run lint</arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <dependencyManagement>
         <dependencies>
@@ -117,6 +153,9 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
+                        <configuration>
+                            <arguments>${npm.goal}</arguments>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>webpack build</id>
@@ -127,8 +166,18 @@
                             <arguments>
                                 --env.outputFolder=${project.build.outputDirectory}
                                 --env.pluginDescriptorsFolder=${plugin.descriptors.folder}
-                                --mode=development
+                                --mode=${webpack.mode}
                             </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>test</arguments>
                         </configuration>
                     </execution>
                 </executions>
