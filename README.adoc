@@ -1,5 +1,7 @@
 = AsciiDoc Viewer plugin for Atlassian Bitbucket Server
 
+image::https://sonarcloud.io/api/project_badges/measure?project=bdhoine_bitbucket-asciidoc-viewer-plugin&metric=alert_status[link=https://sonarcloud.io/dashboard?id=bdhoine_bitbucket-asciidoc-viewer-plugin]
+
 Plugin to render asciidoc on Bitbucket server. This plugin uses https://www.npmjs.com/package/asciidoctor[asciidoctor]
 to convert asciidoc to html and https://www.npmjs.com/package/highlight.js[higghlight.js] to highlight syntax in code blocks.
 
