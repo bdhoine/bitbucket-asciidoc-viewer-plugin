@@ -23,4 +23,4 @@ jobs:
           atlas-version
       - name: Package Project
         run: |
-          atlas-mvn --batch-mode ---activate-profiles production clean package
+          atlas-mvn --batch-mode --activate-profiles production clean package
