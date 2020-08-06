@@ -1,0 +1,53 @@
+= AsciiDoc Viewer plugin for Atlassian Bitbucket Server
+
+Plugin to render asciidoc on Bitbucket server. This plugin uses https://www.npmjs.com/package/asciidoctor[asciidoctor]
+to convert asciidoc to html and https://www.npmjs.com/package/highlight.js[higghlight.js] to highlight syntax in code blocks.
+
+The plugin can installed from the Atlassian Marketplace
+
+== Features
+
+- Render `.adoc`, `.asciidoc` and `.asc` in Bitbucket Server.
+- Highlight syntax in code blocks
+
+== Alternatives
+
+https://github.com/christiangalsterer/bitbucket-asciidoc-plugin[Bitbucket Asciidoc Plugin] (Open Source, Not supported anymore)
+https://marketplace.atlassian.com/apps/1222697/asciidoc-viewer-for-bitbucket?hosting=server&tab=overview[AsciiDoc Viewer for Bitbucket] (Paid)
+
+== Contributing
+
+To contribute to the plugin you first need to download the https://developer.atlassian.com/server/framework/atlassian-sdk[Atlassian SDK].
+This will install several `atlas-*` commands. The Atlassian SDK wraps Maven so to compile you need to use the `atlas-mvn` command.
+
+To test the plugin you will need a Bitbucket Server instance.
+To start a development server
+
+----
+atlas-run --product bitbucket
+----
+
+In order to build and package the project you should issues to following command
+
+----
+atlas-mvn package -P production
+----
+
+The `production` profile is used. This will enable the `production` mode for Webpack and `npm ci` to install dependencies.
+
+During development you can use a watcher. This will detect changed files and repackage the plugin.
+When the `package` goal is executed the https://developer.atlassian.com/server/framework/atlassian-sdk/automatic-plugin-reinstallation-with-quickreload/[Quickreload] plugin will reinstall the plugin on the server.
+
+----
+atlas-mvn fizzed-watcher:run
+----
+
+When contributing code please also add tests. The tests are automatically run in the `test` phase.
+
+To run them manually you can issue
+
+----
+atlas-mvn test
+----
+
+This will run all tests, including the frontend tests using the `jest` testrunner.
